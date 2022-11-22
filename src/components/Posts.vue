@@ -4,13 +4,13 @@
             <article class="post">
                 <div class="post-header">
                     <div class="name-avatar-div">
-                        <img src={{post.avatar}} alt="user-image">
+                        <img :src=post.avatar alt="user-image" class="avatar">
                         <p>{{post.user}}</p>
                     </div>
                     <p>{{post.date_time}}</p>
                 </div>
                 <div class="post-lower">
-                    <img src={{post.img}} alt="post">
+                    <img :src=post.img alt="post" class="post">
                     <p>{{post.text}}</p>
                     <div class="like-div">
                         <button class="like" type="button">Like!</button>
