@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import posts from "@/components/Posts";
 
 export default createStore({
   state: {
@@ -102,6 +103,10 @@ export default createStore({
       state.postList.forEach(post =>{
         post.likes = 0;
       })
+    },
+    increaseLikes(state, id) {
+        const post = state.postList.find(i => i.id === id);
+        post.likes++;
     }
   },
   actions: {
@@ -109,6 +114,11 @@ export default createStore({
       setTimeout(function(){
         act.commit("resetLikes")
       }, 1000)
-    }
+    },
+      increaseLikes: act => {
+          setTimeout(function () {
+              act.commit("increaseLikes")
+          }, 100)
+      }
   }
 })

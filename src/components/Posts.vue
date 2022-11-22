@@ -13,7 +13,7 @@
                     <img :src=post.img alt="post" class="post">
                     <p>{{post.text}}</p>
                     <div class="like-div">
-                        <button class="like" type="button">👍 Like!</button>
+                        <button class="like" type="button" v-on:click="increaseLikes(post.id)">👍 Like!</button>
                         <p>Likes: {{post.likes}}</p>
                     </div>
                 </div>
@@ -33,6 +33,11 @@ export default {
         postList(){
             return this.$store.state.postList
         }
+    },
+    methods: {
+      increaseLikes: function (id) {
+        this.$store.commit("increaseLikes", id)
+      }
     }
 }
 </script>
