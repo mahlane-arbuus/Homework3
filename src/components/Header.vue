@@ -17,16 +17,17 @@ export default {
 header {
   top: 0;
   margin: 0;
-  height: 70px;
   width: 100%;
   background-color: #BEECFF;
+  padding: 1.2rem;
+  display: flex;
   overflow: auto;
   justify-content: space-between;
   position: fixed;
 }
 
 header a {
-  margin: 2% 4% 2% 4%;
+  margin: 0 2% 0 2%;
   font-size: 1.5rem;
   color: black;
   text-decoration: none;

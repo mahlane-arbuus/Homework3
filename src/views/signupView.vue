@@ -1,21 +1,30 @@
 <template>
   <Header></Header>
 
-  <form @submit.prevent = "validateForm">
-      <div class="login-div">
-        <label for="login">Email</label><br>
-        <input type="text" id="login" required v-model="login"><br>
+  <div class="signUpBody">
+    <div class="box">
+      <div class="logo">
+        <h1>Welcome to PostIt!</h1>
       </div>
-      <div class="password-div">
-        <label for="password">Password</label><br />
-        <input type="password" id="password" required v-model="password"><br />
-        <button class="button" id="forgotPassword">Forgot your password?</button>
+      <div class="inputs">
+        <form @submit.prevent = "validateForm">
+          <div class="login-div">
+            <label for="login">Email</label><br>
+            <input type="text" id="login" required v-model="login"><br>
+          </div>
+          <div class="password-div">
+            <label for="password">Password</label><br />
+            <input type="password" id="password" required v-model="password"><br />
+            <button class="button" id="forgotPassword">Forgot your password?</button>
+          </div>
+          <div v-if="validatePassword" class="error">{{validatePassword}}</div>
+          <input type="submit" class="button" id="loginButton" value="Login" />
+          <label for="registerButton">Or make a new account:</label>
+          <input type="submit" class="button" id="registerButton" value="Register"/>
+        </form>
       </div>
-      <div v-if="validatePassword" class="error">{{validatePassword}}</div>
-      <input type="submit" class="button" id="loginButton" value="Login" />
-      <label for="registerButton">Or make a new account:</label>
-      <input type="submit" class="button" id="registerButton" value="Register"/>
-  </form>
+    </div>
+  </div>
 
   <Footer></Footer>
 
@@ -53,9 +62,9 @@ export default {
       }else if(!digits.test(this.password)){
         this.validatePassword = "passwort must contain at least one digit (0-9)"
       }else if(!special.test(this.password)){
-        this.validatePassword = "password must contain at least one _"
+        this.validatePassword = "password must contain at least one undersoore (_)"
       }else if(!upper.test(this.password.charAt(0))){
-        this.validatePassword = "password should start with an uppercase alphabet"
+        this.validatePassword = "password should start with an uppercase character"
       }else{this.validatePassword = ""}
 
     }
@@ -74,15 +83,16 @@ form{
   text-align: center;
 }
 
-body {
+.signUpBody {
     margin: 0;
-    padding: 0;
+    padding: 5% 0 5% 0;
     background-color: white;
     font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    background-image: var(--gradient);
+    background-image: linear-gradient(90deg, #8360c3, #2ebf91);
     background-size: 400%;
     animation: anim 10s infinite alternate;
 }
+
 @keyframes anim {
     0% {
         background-position: left;
@@ -92,53 +102,13 @@ body {
     }
 }
 
-@media screen and (max-width: 699px) {
-    .box {width: 80%; height: 90%; margin: 25% auto 10% auto;}
+@media screen and (max-width: 800px) {
+  .box {width: 80%; height: 90%; margin: 25% auto 10% auto; padding: 25% 0 10% 0;}
 
 }
 
-@media screen and (min-width: 700px) {
-    .box {width: 25%; height: 70%; margin: 10% auto 10% auto;}
-}
-
-.header {
-    top: 0;
-    margin: 0;
-    height: 70px;
-    width: 100%;
-    background-color: #BEECFF;
-    display: flex;
-    overflow: auto;
-    justify-content: space-between;
-    position: fixed;
-}
-
-.home-add-div {
-    padding: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.home-add-div a {
-    margin: 2% 4% 2% 4% ;
-    font-size: 1.5rem;
-    color: black;
-    text-decoration: none;
-    align-self: center;
-}
-
-.home-add-div a:hover{
-    color: hotpink;
-    background-color: #bdbdbd;
-    text-decoration: underline;
-}
-
-.home-add-div a:visited{
-    text-decoration: none;
-}
-
-.user {
-    display: flex;
+@media screen and (min-width: 800px) {
+  .box {width: 40%; height: 70%; margin: 10% auto 10% auto; padding: 10% 0 10% 0;}
 }
 
 .user img {
@@ -146,27 +116,6 @@ body {
     width: 3rem;
     border-radius: 45%;
     align-self: center;
-}
-
-:root {
-    --gradient: linear-gradient(90deg, #8360c3, #2ebf91);
-}
-
-.box {
-    background-color: #F4F5FD;
-    text-align: center;
-    padding: 5%;
-    border: 0;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 20px;
-}
-
-.logo {
-    background-color: #243963;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    font-family: sans-serif;
-    padding: 1rem;
-    color: white;
 }
 
 .login-div {
@@ -196,7 +145,6 @@ input:focus {
     margin: 30px;
 }
 
-
 .button {
     font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #243963;
@@ -223,4 +171,24 @@ input:focus {
     padding: 0.5rem 2rem 1rem;
 }
 
+.box {
+  background-color: #F4F5FD;
+  text-align: center;
+  padding: 5%;
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 20px;
+}
+
+.login-div {
+  margin: 30px;
+}
+
+.logo {
+  background-color: #243963;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  font-family: sans-serif;
+  padding: 1rem;
+  color: white;
+}
 </style>
