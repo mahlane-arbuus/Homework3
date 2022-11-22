@@ -1,7 +1,7 @@
 <template>
   <Header></Header>
   <Posts></Posts>
-  <button v-on:click="resetLikes">Reset likes</button>
+  <button id="resetLikes" v-on:click="resetLikes">Reset likes</button>
   <Footer></Footer>
 </template>
 
@@ -26,3 +26,29 @@ methods: {
 
 }
 </script>
+
+<style>
+#resetLikes {
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #243963;
+  border: 0 groove #9FA6CD;
+  border-radius: 1.5rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.7rem 2rem 1.5rem;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  margin: 10px;
+}
+
+#resetLikes:hover {
+  background-color: #1e293b;
+  color: #fff;
+}
+</style>
