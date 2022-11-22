@@ -65,7 +65,10 @@ export default {
         this.validatePassword = "password must contain at least one undersoore (_)"
       }else if(!upper.test(this.password.charAt(0))){
         this.validatePassword = "password should start with an uppercase character"
-      }else{this.validatePassword = ""}
+      }else {
+        this.validatePassword = "";
+        this.$router.push({name:"mainView"});
+      }
 
     }
   }
