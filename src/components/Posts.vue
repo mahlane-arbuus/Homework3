@@ -43,14 +43,6 @@ export default {
 </script>
 
 <style scoped>
-.postText {
-    display: flex;
-}
-
-.postFile {
-    display: flex;
-}
-
 .button{
     background-color: #243963;
     border: 0 groove #9FA6CD;
@@ -74,39 +66,6 @@ label + .button:hover {
     background-color: #200549;
 }
 
-#fileSelect {
-    margin: 2rem 1rem 2rem;
-}
-
-.home-add-div {
-    padding: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.home-add-div a {
-    margin: 2% 4% 2% 4% ;
-    font-size: 1.5rem;
-    color: black;
-    text-decoration: none;
-    align-self: center;
-}
-
-.home-add-div a:hover{
-    color: #8360c3;
-    background-color: #8fd5f8;
-    text-decoration: underline;
-    border-radius: 10px;
-}
-
-.home-add-div a:visited{
-    text-decoration: none;
-}
-
-.user {
-    display: flex;
-}
-
 .user img {
     height: 3rem;
     width: 3rem;
@@ -118,7 +77,7 @@ label + .button:hover {
     background-color: rgba(255, 220, 195, 0.44);
     margin-left: 25%;
     width: 40%;
-    padding: 5%;
+    padding: 8% 5% 5% 5%;
     box-shadow: 0 1rem 3rem 0 #1e293b;
 }
 
