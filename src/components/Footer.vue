@@ -17,7 +17,7 @@ footer {
   border-radius: 2rem 2rem 0 0;
   padding-left: 2%;
   padding-right: 2%;
-  background-color: #F4F5FD;
+  background-color: #BEECFF;
   display: flex;
   justify-content: space-between;
 }

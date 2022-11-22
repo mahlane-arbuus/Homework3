@@ -13,8 +13,8 @@
                     <img :src=post.img alt="post" class="post">
                     <p>{{post.text}}</p>
                     <div class="like-div">
-                        <button class="like" type="button">Like!</button>
-                        <p>{{post.likes}}</p>
+                        <button class="like" type="button">👍 Like!</button>
+                        <p>Likes: {{post.likes}}</p>
                     </div>
                 </div>
             </article>
@@ -111,9 +111,10 @@ label + .button:hover {
 
 .content {
     background-color: rgba(255, 220, 195, 0.44);
-    margin: 15%;
-    width: 75%;
-
+    margin-left: 25%;
+    width: 40%;
+    padding: 5%;
+    box-shadow: 0 1rem 3rem 0 #1e293b;
 }
 
 .posts > .post {
@@ -139,7 +140,7 @@ label + .button:hover {
 }
 
 .post-lower img {
-    width: 100%
+    width: 100%;
 }
 
 .name-avatar-div {
