@@ -22,6 +22,7 @@ export default {
 
 <style scoped>
 .main{
+  height: 600px;
   padding: 10%;
 }
 h3 {
