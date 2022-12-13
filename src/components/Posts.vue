@@ -12,7 +12,9 @@
                 </div>
                 <div class="post-lower">
                     <!--<img :src=post.img alt="post" class="post">-->
+                  <router-link :to="'/apost/' + post.id">
                     <p>{{post.body}}</p>
+                  </router-link>
                     <!--<div class="like-div">
                         <button class="like" type="button" v-on:click="increaseLikes(post.id)">👍 Like!</button>
                         <p>Likes: {{post.likes}}</p>
@@ -96,6 +98,7 @@ label + .button:hover {
 }
 
 .content {
+  min-height: 800px;
     background-color: rgba(255, 220, 195, 0.44);
     margin-left: 25%;
     width: 40%;

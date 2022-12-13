@@ -5,6 +5,7 @@ import contactView from "@/views/contactView";
 import signupView from "@/views/signupView";
 import auth from "../auth";
 import addPostView from "@/views/addPostView";
+import APost from "@/views/APost";
 
 const routes = [{
   path: "/",
@@ -31,6 +32,11 @@ const routes = [{
         next();
       }
     }
+  },
+  {
+    path: "/apost/:id",
+    name: "APost",
+    component: APost,
   },
   {
     path: "/signup",
