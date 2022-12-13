@@ -3,6 +3,43 @@ import loginView from "@/views/loginView";
 import mainView from "@/views/mainView";
 import contactView from "@/views/contactView";
 import signupView from "@/views/signupView";
+import auth from "../auth";
+
+const routes = [{
+  path: "/",
+  name: "mainView",
+  component: mainView,
+  beforeEnter: async(to, from, next) => {
+    let authResult = await auth.authenticated();
+    if (!authResult) {
+      next('/login')
+    } else {
+      next();
+    }
+  }
+},
+  {
+    path: "/signup",
+    name: "signupView",
+    component: signupView,
+  },
+  {
+    path: "/login",
+    name: "loginView",
+    component: loginView,
+  },
+  {
+    path: "/about",
+    name: "contactView",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+        import ( /* webpackChunkName: "about" */ "../views/contactView.vue"),
+  },
+];
+
+/*
 const routes = [
   {
     path: '/',
@@ -25,6 +62,7 @@ const routes = [
     component: signupView
   }
 ]
+*/
 
 const router = createRouter({
   history: createWebHashHistory(),

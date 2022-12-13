@@ -1,8 +1,8 @@
 <template>
     <header class="header">
       <div class="home-add-div">
-        <router-link to="/mainView">Home</router-link>
-        <router-link to="/contactView">Contacts</router-link>
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">Contacts</router-link>
       </div>
     </header>
 </template>

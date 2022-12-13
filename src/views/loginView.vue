@@ -67,7 +67,35 @@ export default {
         this.validatePassword = "password should start with an uppercase character"
       }else {
         this.validatePassword = "";
-        this.$router.push({name:"mainView"});
+        let data = {
+          email: this.login,
+          password: this.password
+        };
+        // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+        fetch("http://localhost:3000/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+          body: JSON.stringify(data),
+        })
+            .then((response) => {
+              response.json();
+              if (response.status === 401) {
+                throw new Error("No such user");
+              }
+            })
+            .then((data) => {
+              console.log(data);
+              //this.$router.push("/");
+              location.assign("/");
+            })
+            .catch((e) => {
+              this.validatePassword = "No such account exists."
+              console.log(e);
+              console.log("error");
+            });
       }
     }
   }
