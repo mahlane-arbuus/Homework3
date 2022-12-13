@@ -59,7 +59,7 @@ methods: {
           .then((response) => {
             console.log(response.data);
             // We are using the router instance of this element to navigate to a different URL location
-            location.assign("/mainView")
+            location.assign("/")
           })
           .catch((e) => {
             console.log(e);
@@ -120,7 +120,7 @@ methods: {
 
 #deleteAll {
   position: fixed;
-  top: 140px;
+  top: 70px;
   right: 10px;
   font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   background-color: #243963;
