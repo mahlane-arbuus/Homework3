@@ -1,31 +1,52 @@
 <template>
     <div class="content">
-        <div class="posts" v-for="post in postList" :key="post.id">
+        <div class="posts" v-for="post in posts" :key="post.id">
             <article class="post">
                 <div class="post-header">
                     <div class="name-avatar-div">
-                        <img :src=post.avatar alt="user-image" class="avatar">
-                        <p>{{post.user}}</p>
+                      <p>{{post.title}}</p>
+                        <!--<img :src=post.avatar alt="user-image" class="avatar">-->
+                        <!--<p>{{post.user}}</p>-->
                     </div>
-                    <p>{{post.date_time}}</p>
+                    <!--<p>{{post.date_time}}</p>-->
                 </div>
                 <div class="post-lower">
-                    <img :src=post.img alt="post" class="post">
-                    <p>{{post.text}}</p>
-                    <div class="like-div">
+                    <!--<img :src=post.img alt="post" class="post">-->
+                    <p>{{post.body}}</p>
+                    <!--<div class="like-div">
                         <button class="like" type="button" v-on:click="increaseLikes(post.id)">👍 Like!</button>
                         <p>Likes: {{post.likes}}</p>
-                    </div>
+                    </div>-->
                 </div>
             </article>
         </div>
-
     </div>
 </template>
 
 <script>
+// @ is an alias to /src
+import auth from "../auth";
+
 export default {
-    name: "Posts",
+  name: "Posts",
+  components: {
+  },
+  data: function() {
+    return {
+      posts:[ ],
+      authResult: auth.authenticated()
+    }
+  },
+  mounted() {
+    fetch('http://localhost:3000/api/posts')
+        .then((response) => response.json())
+        .then(data => {
+          console.log(data)
+          this.posts = data
+        })
+        .catch(err => console.log(err.message))
+    }
+/*
     data: function(){
         return{}
     },
@@ -39,6 +60,7 @@ export default {
         this.$store.commit("increaseLikes", id)
       }
     }
+*/
 }
 </script>
 

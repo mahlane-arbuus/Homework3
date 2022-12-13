@@ -4,6 +4,7 @@ import mainView from "@/views/mainView";
 import contactView from "@/views/contactView";
 import signupView from "@/views/signupView";
 import auth from "../auth";
+import addPostView from "@/views/addPostView";
 
 const routes = [{
   path: "/",
@@ -18,6 +19,19 @@ const routes = [{
     }
   }
 },
+  {
+    path: "/addpost",
+    name: "addPostView",
+    component: addPostView,
+    beforeEnter: async(to, from, next) => {
+      let authResult = await auth.authenticated();
+      if (!authResult) {
+        next('/login')
+      } else {
+        next();
+      }
+    }
+  },
   {
     path: "/signup",
     name: "signupView",
