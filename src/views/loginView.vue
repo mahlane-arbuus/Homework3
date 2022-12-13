@@ -17,8 +17,10 @@
             <button class="button" id="forgotPassword">Forgot your password?</button>
           </div>
           <div v-if="validatePassword" class="error">{{validatePassword}}</div>
-          <input type="submit" class="button" id="loginButton" value="Sign Up" />
+          <input type="submit" class="button" id="loginButton" value="Login" />
         </form>
+          <label for="registerButton">Or make a new account:</label>
+          <button v-on:click="this.$router.push({name:'signupView'})" class="button" id="registerButton">Sign Up</button>
       </div>
     </div>
   </div>
@@ -84,22 +86,22 @@ form{
 }
 
 .signUpBody {
-  margin: 0;
-  padding: 5% 0 5% 0;
-  background-color: white;
-  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  background-image: linear-gradient(90deg, #8360c3, #2ebf91);
-  background-size: 400%;
-  animation: anim 10s infinite alternate;
+    margin: 0;
+    padding: 5% 0 5% 0;
+    background-color: white;
+    font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-image: linear-gradient(90deg, #8360c3, #2ebf91);
+    background-size: 400%;
+    animation: anim 10s infinite alternate;
 }
 
 @keyframes anim {
-  0% {
-    background-position: left;
-  }
-  100% {
-    background-position: right;
-  }
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -112,63 +114,63 @@ form{
 }
 
 .user img {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 45%;
-  align-self: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 45%;
+    align-self: center;
 }
 
 .login-div {
-  margin: 30px;
+    margin: 30px;
 }
 
 label {
-  display: block;
+    display: block;
 }
 
 input {
-  width: 75%;
-  height: 30px;
-  text-align: center;
-  border-radius: 0.25rem;
-  border-color: #bdbdbd;
-  outline: none;
-  box-shadow: none;
-  transition: 0.75s;
+    width: 75%;
+    height: 30px;
+    text-align: center;
+    border-radius: 0.25rem;
+    border-color: #bdbdbd;
+    outline: none;
+    box-shadow: none;
+    transition: 0.75s;
 }
 
 input:focus {
-  background-color: #ebe8ff;
+    background-color: #ebe8ff;
 }
 
 .password-div {
-  margin: 30px;
+    margin: 30px;
 }
 
 .button {
-  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  background-color: #243963;
-  border: 0 groove #9FA6CD;
-  border-radius: 1.5rem;
-  color: white;
-  cursor: pointer;
-  font-size: 1.1rem;
-  line-height: 1;
-  padding: 0.7rem 2rem 1.5rem;
-  transition: all .1s cubic-bezier(.4, 0, .2, 1);
-  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
-  user-select: none;
-  margin: 10px;
+    font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #243963;
+    border: 0 groove #9FA6CD;
+    border-radius: 1.5rem;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0.7rem 2rem 1.5rem;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+    user-select: none;
+    margin: 10px;
 }
 
 .button:hover {
-  background-color: #1e293b;
-  color: #fff;
+    background-color: #1e293b;
+    color: #fff;
 }
 
 #forgotPassword {
-  font-size: 10px;
-  padding: 0.5rem 2rem 1rem;
+    font-size: 10px;
+    padding: 0.5rem 2rem 1rem;
 }
 
 .box {
