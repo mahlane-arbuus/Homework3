@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="posts" v-for="post in posts" :key="post.id">
-            <article class="post">
+            <article v-on:click="postChanges(post.id)" class="post">
                 <div class="post-header">
                     <div class="name-avatar-div">
                       <p>{{post.title}}</p>
@@ -12,9 +12,7 @@
                 </div>
                 <div class="post-lower">
                     <!--<img :src=post.img alt="post" class="post">-->
-                  <router-link :to="'/apost/' + post.id">
                     <p>{{post.body}}</p>
-                  </router-link>
                     <!--<div class="like-div">
                         <button class="like" type="button" v-on:click="increaseLikes(post.id)">👍 Like!</button>
                         <p>Likes: {{post.likes}}</p>
@@ -28,6 +26,7 @@
 <script>
 // @ is an alias to /src
 import auth from "../auth";
+import router from "@/router";
 
 export default {
   name: "Posts",
@@ -37,6 +36,11 @@ export default {
     return {
       posts:[],
       authResult: auth.authenticated()
+    }
+  },
+  methods: {
+    postChanges: function (id) {
+      this.$router.push("/apost/" + id);
     }
   },
   mounted() {
@@ -190,6 +194,10 @@ header ~ footer {
     justify-content: space-between;
 }
 
+.post:hover {
+  background-color: #BEECFF;
+  cursor: pointer;
+}
 
 </style>
 
